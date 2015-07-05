@@ -1,0 +1,23 @@
+{
+  "name": "mdast-strip-badges",
+  "version": "0.0.0",
+  "description": "Remove badges (such as shields.io) from markdown",
+  "license": "MIT",
+  "keywords": [
+    "mdast",
+    "markdown",
+    "badge",
+    "shields",
+    "io",
+    "remove",
+    "clean",
+    "strip"
+  ],
+  "dependencies": {
+    "wooorm/mdast-util-visit": "^0.1.1"
+  },
+  "repository": "wooorm/mdast-strip-badges",
+  "scripts": [
+    "index.js"
+  ]
+}
