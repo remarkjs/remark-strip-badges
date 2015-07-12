@@ -7,10 +7,3 @@ node_js:
 - iojs
 sudo: false
 after_script: npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls
-deploy:
-  provider: npm
-  email: tituswormer@gmail.com
-  api_key:
-    secure: EBJ9YgNFnff3D56WIrPiHhftEciwyfidJOpzoUy6DPl6ziu7wyxerVC7UIfdk57oBSscCd0V1EbUN70M7w76rRnAA+7e/+JcBGnR9Le7LEJZ7+73+LIstvX3RtUJyxMbG46ZwI0QAV4pEBJcLeVc3r/DTG1eu1TksHMqnbB45/vmc7VEJ6Hihfu6BqH1zkSkUchs3HvbfiAP36d+O89yezGIUHXQ9U1RUPt2mcH1hTFa8+IYpQUMgA1JeR8Drr5TUAN/GxF2j1GlP24iy/YoxoOq50RtVObk9Pb4SgBJ8bvjlwJAcMc8gW2ti0jiML75IrgIR4T2zjnfJlzssIHWO0qk53YGWvhAdoImOdf2YQlFYRipWbF1ZoWBSLETMRw1dccnkk0Z3J+7+QAQLqxFlqlS8Sfz4/YuDj/V3aRBCYOh0+/daoIVppi/h1O2hlRgntwmnOo+2uhgZ4w/88vqjVW+HNP1cpt/IBd0Mosa2due4OlerEWjAJSdlUPJSMtcMr02bDWGbBCo0jQXSYieVrTp1sjo26wSnofVvthU+aUlMFStalAJbeGpi8iorGKZQgJQ0ncBYfBladphMXKIh7C4j79iu3+24Zg//uEVa9dI3xwvumkt+Q+SfnCenwaIMcp4mQ70W9Kq856CsVCdqfxmH3HAljJBynn7IhuMkO4=
-  on:
-    repo: wooorm/mdast-strip-badges
