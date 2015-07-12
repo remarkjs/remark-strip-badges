@@ -13,6 +13,11 @@
 
 var visit = require('mdast-util-visit');
 
+var badgeRegExps = [/^https?:\/\/img.shields.io/,
+                    /^https?:\/\/travis-ci.org\/.*\.svg/,
+                    /^https?:\/\/david-dm.org\/.*\.png/,
+                    /^https?:\/\/nodei.co\/.*\.png/];
+
 /**
  * Check if `url` points to a badge.
  *
@@ -22,7 +27,13 @@ var visit = require('mdast-util-visit');
  *   badge.
  */
 function isBadge(url) {
-    return /^https?:\/\/img.shields.io/.test(url);
+    var index = -1;
+    while (++index < badgeRegExps.length) {
+        if (badgeRegExps[index].test(url)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 /**
