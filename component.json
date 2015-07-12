@@ -1,6 +1,6 @@
 {
   "name": "mdast-strip-badges",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Remove badges (such as shields.io) from markdown",
   "license": "MIT",
   "keywords": [
