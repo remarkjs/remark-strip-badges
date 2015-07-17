@@ -5,6 +5,11 @@ mdast:
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+0.2.0 / 2015-07-17
+==================
+
+*   Add `is-badge` as a dependency ([6c1e12e](https://github.com/wooorm/mdast-strip-badges/commit/6c1e12e))
+
 0.1.1 / 2015-07-12
 ==================
 
