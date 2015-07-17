@@ -29,7 +29,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "browserify": "^10.0.0",
+    "browserify": "^11.0.0",
     "eslint": "^0.24.0",
     "esmangle": "^1.0.0",
     "istanbul": "^0.3.0",
