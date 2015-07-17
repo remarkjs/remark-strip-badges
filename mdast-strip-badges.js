@@ -12,25 +12,9 @@
  * Dependencies.
  */
 
+var definitions = require('mdast-util-definitions');
 var visit = require('mdast-util-visit');
 var isBadge = require('is-badge');
-
-/**
- * Gather all definitions in `ast`.
- *
- * @private
- * @param {Node} ast - Root node.
- * @return {Object} - Map of identifiers to links.
- */
-function definitions(ast) {
-    var cache = {};
-
-    visit(ast, 'definition', function (node) {
-        cache[node.identifier.toUpperCase()] = node.link;
-    });
-
-    return cache;
-}
 
 /**
  * Factory to create a visitor which queues badge links
@@ -60,7 +44,8 @@ function checkFactory(references) {
         var url = node.src;
 
         if ('identifier' in node) {
-            url = references[node.identifier.toUpperCase()];
+            url = references(node.identifier);
+            url = url && url.link;
         }
 
         if (isBadge(url)) {
@@ -134,7 +119,7 @@ function attacher() {
 
 module.exports = attacher;
 
-},{"is-badge":2,"mdast-util-visit":3}],2:[function(require,module,exports){
+},{"is-badge":2,"mdast-util-definitions":3,"mdast-util-visit":4}],2:[function(require,module,exports){
 'use strict';
 
 /*
@@ -191,6 +176,99 @@ function isBadge(url) {
 module.exports = isBadge;
 
 },{}],3:[function(require,module,exports){
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer. All rights reserved.
+ * @module mdast:util:definitions
+ * @fileoverview Get a definition in `node` by `identifier`.
+ */
+
+'use strict';
+
+/*
+ * Dependencies.
+ */
+
+var visit = require('mdast-util-visit');
+
+/**
+ * Factory to get a node from the given definition-cache.
+ *
+ * @private
+ * @param {Object.<string, Node>} cache - Definitions.
+ * @return {function(string): Node?} - Getter, bound to
+ *   `cache`.
+ */
+function getterFactory(cache) {
+    /**
+     * Get a node from the bound definition-cache.
+     *
+     * @private
+     * @param {string} identifier - Identifier of
+     *   definition.
+     * @return {Node?} - Definition, if found.
+     */
+    function getter(identifier) {
+        return (identifier && cache[identifier.toUpperCase()]) || null;
+    }
+
+    return getter;
+}
+
+/**
+ * Gather all definitions in `node`
+ *
+ * @private
+ * @param {Node} node - (Grand)parent of definitions.
+ * @return {Object.<string, Node>} - Map of found
+ *   definitions by their identifier.
+ */
+function gather(node) {
+    var cache = {};
+
+    if (!node || !node.type) {
+        throw new Error('mdast-util-definitions expected node');
+    }
+
+    /**
+     * Add `definition` to `cache` if it has an identifier.
+     *
+     * @param {Node} definition - Definition node.
+     */
+    function check(definition) {
+        cache[definition.identifier.toUpperCase()] = definition;
+    }
+
+    visit(node, 'definition', check);
+
+    return cache;
+}
+
+/**
+ * Get a definition in `node` by `identifier`.
+ *
+ * Supports weird keys (like `__proto__`).
+ *
+ * @example
+ *   var ast = mdast.parse('[example]: http://example.com "Example"');
+ *   var getDefinition = getDefinitionFactory(ast);
+ *   getDefinition('example');
+ *   // {type: 'definition', 'title': 'Example', ...}
+ *
+ * @param {Node} node - (Grand)parent of definitions.
+ * @return {function(string): Node?} - Getter.
+ */
+function getDefinitionFactory(node) {
+    return getterFactory(gather(node));
+}
+
+/*
+ * Expose
+ */
+
+module.exports = getDefinitionFactory;
+
+},{"mdast-util-visit":4}],4:[function(require,module,exports){
 /**
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer. All rights reserved.

@@ -11,25 +11,9 @@
  * Dependencies.
  */
 
+var definitions = require('mdast-util-definitions');
 var visit = require('mdast-util-visit');
 var isBadge = require('is-badge');
-
-/**
- * Gather all definitions in `ast`.
- *
- * @private
- * @param {Node} ast - Root node.
- * @return {Object} - Map of identifiers to links.
- */
-function definitions(ast) {
-    var cache = {};
-
-    visit(ast, 'definition', function (node) {
-        cache[node.identifier.toUpperCase()] = node.link;
-    });
-
-    return cache;
-}
 
 /**
  * Factory to create a visitor which queues badge links
@@ -59,7 +43,8 @@ function checkFactory(references) {
         var url = node.src;
 
         if ('identifier' in node) {
-            url = references[node.identifier.toUpperCase()];
+            url = references(node.identifier);
+            url = url && url.link;
         }
 
         if (isBadge(url)) {
