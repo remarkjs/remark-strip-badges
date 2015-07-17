@@ -13,29 +13,7 @@
  */
 
 var visit = require('mdast-util-visit');
-
-var badgeRegExps = [/^https?:\/\/img.shields.io/,
-                    /^https?:\/\/travis-ci.org\/.*\.svg/,
-                    /^https?:\/\/david-dm.org\/.*\.png/,
-                    /^https?:\/\/nodei.co\/.*\.png/];
-
-/**
- * Check if `url` points to a badge.
- *
- * @private
- * @param {string} url - Image source.
- * @return {boolean} - Whether or not `url` points to a
- *   badge.
- */
-function isBadge(url) {
-    var index = -1;
-    while (++index < badgeRegExps.length) {
-        if (badgeRegExps[index].test(url)) {
-            return true;
-        }
-    }
-    return false;
-}
+var isBadge = require('is-badge');
 
 /**
  * Gather all definitions in `ast`.
@@ -156,7 +134,63 @@ function attacher() {
 
 module.exports = attacher;
 
-},{"mdast-util-visit":2}],2:[function(require,module,exports){
+},{"is-badge":2,"mdast-util-visit":3}],2:[function(require,module,exports){
+'use strict';
+
+/*
+ * Expressions.
+ */
+
+var EXPRESSIONS = [
+    /^https?:\/\/img\.shields\.io/,
+    /^https?:\/\/(?:(?:www|api)\.)?travis-ci\.org\/.*\.(?:svg|png)(?:\?|$)/,
+    /^https?:\/\/(?:www\.)?david-dm\.org(?:\/.+){2}\.(?:svg|png)/,
+    /^https?:\/\/(?:www\.)?nodei\.co(?:\/.+){2}\.(?:svg|png)(?:\?|$)/,
+    /^https?:\/\/inch-ci.org(?:\/.+){3}\.(?:svg|png)(?:\?|$)/
+];
+
+/*
+ * Constants.
+ */
+
+var length = EXPRESSIONS.length;
+
+/**
+ * Check if `url` is a badge.
+ *
+ * @example
+ *  isBadge('https://img.shields.io/travis/joyent/node.svg');
+ *  // true
+ *
+ *  isBadge('http://example.com');
+ *  // false
+ *
+ *  isBadge(true);
+ *  // [Error: is-badge expected string]
+ *
+ * @param {string} url - May or may not be a badge.
+ * @return {boolean} - Whether or not `url` is a badge.
+ * @throws {Error} - When `url` is not a string.
+ */
+function isBadge(url) {
+    var index = -1;
+
+    if (typeof url !== 'string') {
+        throw new Error('is-badge expected string');
+    }
+
+    while (++index < length) {
+        if (EXPRESSIONS[index].test(url)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+module.exports = isBadge;
+
+},{}],3:[function(require,module,exports){
 /**
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer. All rights reserved.
