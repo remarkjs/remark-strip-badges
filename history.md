@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+1.0.0 / 2015-08-20
+==================
+
+*   Update dependencies, dev-dependencies ([efee975](https://github.com/wooorm/mdast-strip-badges/commit/efee975))
+
 0.2.1 / 2015-07-17
 ==================
 
