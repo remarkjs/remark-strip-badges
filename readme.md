@@ -1,4 +1,4 @@
-# mdast-strip-badges [![Build Status](https://img.shields.io/travis/wooorm/mdast-strip-badges.svg?style=flat)](https://travis-ci.org/wooorm/mdast-strip-badges) [![Coverage Status](https://img.shields.io/coveralls/wooorm/mdast-strip-badges.svg?style=flat)](https://coveralls.io/r/wooorm/mdast-strip-badges?branch=master)
+# mdast-strip-badges [![Build Status](https://img.shields.io/travis/wooorm/mdast-strip-badges.svg)](https://travis-ci.org/wooorm/mdast-strip-badges) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/mdast-strip-badges.svg)](https://codecov.io/github/wooorm/mdast-strip-badges)
 
 [**mdast**](https://github.com/wooorm/mdast) plug-in to strip [shields.io](http://shields.io)
 badges.

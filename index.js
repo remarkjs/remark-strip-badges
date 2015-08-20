@@ -1,8 +1,9 @@
 /**
  * @author Titus Wormer
- * @copyright 2015 Titus Wormer. All rights reserved.
- * @module mdast-message-sort
- * @fileoverview mdast plug-in to sort messages by line/column.
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:strip-badges
+ * @fileoverview Remove badges (such as shields.io) from markdown.
  */
 
 'use strict';
@@ -12,7 +13,7 @@
  */
 
 var definitions = require('mdast-util-definitions');
-var visit = require('mdast-util-visit');
+var visit = require('unist-util-visit');
 var isBadge = require('is-badge');
 
 /**

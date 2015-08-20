@@ -1,14 +1,11 @@
----
-mdast:
-  setext: true
----
+<!--mdast setext-->
 
 <!--lint disable no-multiple-toplevel-headings-->
 
 0.2.1 / 2015-07-17
 ==================
 
-*   Add `mdast-util-definitions` as a dependency (eca46a2)
+*   Add `mdast-util-definitions` as a dependency ([eca46a2](https://github.com/wooorm/mdast-strip-badges/commit/eca46a2))
 
 0.2.0 / 2015-07-17
 ==================

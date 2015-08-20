@@ -1,3 +1,11 @@
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:strip-badges:test
+ * @fileoverview Test suite for `mdast-strip-badges`.
+ */
+
 'use strict';
 
 /* eslint-env mocha */
@@ -52,10 +60,10 @@ var baseline = [
 
 describe('mdast-strip-badges', function () {
     it('should work', function (done) {
-        mdast.use(badges).process(input, function (err, output) {
+        mdast.use(badges).process(input, function (err, file, doc) {
             done(err);
 
-            assert.equal(output, baseline);
+            assert.equal(doc, baseline);
         });
     });
 });

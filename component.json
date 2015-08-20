@@ -15,8 +15,8 @@
   ],
   "dependencies": {
     "wooorm/is-badge": "^1.0.0",
-    "wooorm/mdast-util-definitions": "^0.1.0",
-    "wooorm/mdast-util-visit": "^0.1.1"
+    "wooorm/mdast-util-definitions": "^1.0.0",
+    "wooorm/unist-util-visit": "^1.0.0"
   },
   "repository": "wooorm/mdast-strip-badges",
   "scripts": [

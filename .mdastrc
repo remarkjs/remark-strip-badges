@@ -1,8 +1,9 @@
 {
+  "output": true,
   "plugins": [
     "lint",
     "github",
-    "yaml-config"
+    "comment-config"
   ],
   "settings": {
     "bullet": "*"
