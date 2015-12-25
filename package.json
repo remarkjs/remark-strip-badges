@@ -24,21 +24,21 @@
     "index.js"
   ],
   "devDependencies": {
-    "browserify": "^11.0.0",
+    "browserify": "^12.0.0",
     "eslint": "^1.0.0",
     "esmangle": "^1.0.0",
-    "istanbul": "^0.3.0",
+    "istanbul": "^0.4.0",
     "jscs": "^2.0.0",
     "jscs-jsdoc": "^1.0.0",
     "remark": "^3.0.0",
     "remark-comment-config": "^2.0.0",
     "remark-github": "^2.0.0",
     "remark-lint": "^2.0.0",
-    "mocha": "^2.0.0"
+    "tape": "^4.0.0"
   },
   "scripts": {
-    "test-api": "mocha --check-leaks test.js",
-    "test-coverage": "istanbul cover _mocha -- test.js",
+    "test-api": "node test.js",
+    "test-coverage": "istanbul cover test.js",
     "test-travis": "npm run test-coverage",
     "test": "npm run test-api",
     "lint-api": "eslint .",
