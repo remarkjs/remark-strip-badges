@@ -2,7 +2,7 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:strip-badges
+ * @module remark:strip-badges
  * @fileoverview Remove badges (such as shields.io) from markdown.
  */
 
@@ -105,7 +105,7 @@ function transformer(ast) {
  * Return `transformer`.
  *
  * @example
- *   mdast.use(attacher).process(doc);
+ *   remark.use(attacher).process(doc);
  *
  * @return {Function} - See `transformer`.
  */

@@ -1,6 +1,6 @@
-# mdast-strip-badges [![Build Status](https://img.shields.io/travis/wooorm/mdast-strip-badges.svg)](https://travis-ci.org/wooorm/mdast-strip-badges) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/mdast-strip-badges.svg)](https://codecov.io/github/wooorm/mdast-strip-badges)
+# remark-strip-badges [![Build Status](https://img.shields.io/travis/wooorm/remark-strip-badges.svg)](https://travis-ci.org/wooorm/remark-strip-badges) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg)](https://codecov.io/github/wooorm/remark-strip-badges)
 
-[**mdast**](https://github.com/wooorm/mdast) plug-in to strip [shields.io](http://shields.io)
+[**remark**](https://github.com/wooorm/remark) plug-in to strip [shields.io](http://shields.io)
 badges.
 
 ## Installation
@@ -8,26 +8,26 @@ badges.
 [npm](https://docs.npmjs.com/cli/install):
 
 ```bash
-npm install mdast-strip-badges
+npm install remark-strip-badges
 ```
 
-**mdast-strip-badges** is also available for [bower](http://bower.io/#install-packages),
+**remark-strip-badges** is also available for [bower](http://bower.io/#install-packages),
 [component](https://github.com/componentjs/component), and
 [duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
-module, [uncompressed](mdast-strip-badges.js) and
-[compressed](mdast-strip-badges.min.js).
+module, [uncompressed](remark-strip-badges.js) and
+[compressed](remark-strip-badges.min.js).
 
 ## Usage
 
 ## CLI
 
 ```bash
-mdast ... -u mdast-strip-badges
+remark ... -u remark-strip-badges
 ```
 
 ## API
 
-### [mdast](https://github.com/wooorm/mdast#api).[use](https://github.com/wooorm/mdast#mdastuseplugin-options)(stripBadges)
+### [remark](https://github.com/wooorm/remark#api).[use](https://github.com/wooorm/remark#remarkuseplugin-options)(stripBadges)
 
 Strips badges, like [shields.io](http://shields.io).
 

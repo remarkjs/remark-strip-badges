@@ -5,8 +5,8 @@
     "coverage/",
     "node_modules/",
     "build.js",
-    "mdast-strip-badges.js",
-    "mdast-strip-badges.min.js"
+    "remark-strip-badges.js",
+    "remark-strip-badges.min.js"
   ],
   "jsDoc": {
     "checkAnnotations": "jsdoc3",

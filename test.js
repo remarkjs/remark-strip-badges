@@ -2,8 +2,8 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:strip-badges:test
- * @fileoverview Test suite for `mdast-strip-badges`.
+ * @module remark:strip-badges:test
+ * @fileoverview Test suite for `remark-strip-badges`.
  */
 
 'use strict';
@@ -15,7 +15,7 @@
  */
 
 var assert = require('assert');
-var mdast = require('mdast');
+var remark = require('remark');
 var badges = require('./');
 
 /*
@@ -58,9 +58,9 @@ var baseline = [
  * Tests.
  */
 
-describe('mdast-strip-badges', function () {
+describe('remark-strip-badges', function () {
     it('should work', function (done) {
-        mdast.use(badges).process(input, function (err, file, doc) {
+        remark.use(badges).process(input, function (err, file, doc) {
             done(err);
 
             assert.equal(doc, baseline);
