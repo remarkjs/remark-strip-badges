@@ -14,8 +14,7 @@ npm install remark-strip-badges
 **remark-strip-badges** is also available for
 [component](https://github.com/componentjs/component), and
 [duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
-module, [uncompressed](remark-strip-badges.js) and
-[compressed](remark-strip-badges.min.js).
+module, [uncompressed and compressed](https://github.com/wooorm/remark-strip-badges/releases).
 
 ## Usage
 

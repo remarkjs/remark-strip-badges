@@ -6,3 +6,12 @@ node_js:
 - iojs
 sudo: false
 after_script: npm install codecov.io && cat ./coverage/lcov.info | codecov
+deploy:
+  provider: releases
+  api_key:
+    secure: A6iWSrj79pFIfJyui0tKjiiUUDkU9yIbTq2QA0lD2gJKa9LH15V7MNeHdt8/TeLh4UN9WMik9AQslNq6gCePB3OFn1UQ38Od7o6JQGpxofbXIm3l7dSRu1ZYlbo7hiWqgbuZYAGfICPZ0YvfMLBvNbVaxSmbJGuGme1AgYrzDTF+Hx54kQp+FI2PBvB//Rzm201dMxZOCFUz64P1TZIB7BSLHaMC2lYufVWffYyVrOqg6laVM5O6nfCwqf5Xj+af37wjre5s4bAQhU7o7gbGMN3LdD27J6GtjGjaa8X7ybd8GQGlcWu8+ICMEZDr9eVZsAskazc0wwkpMPz/DgTE8FFuh9MhgKnTgsk8ohKeYOvEiomQeqhngjGDiMbhxlC4o+B9T78RpNoOQin+irPfOnWnvHgiNac8pagwmArL+GnFNxkME9B8sbm22rsnVx2erxsqWZN8/Wr/Rj+v7q2NVhbS/YyzyT7psRuFP09/I/4Q4Zxex/fgz61+X3H9arD0/9RY0HjDy2/vIAqeYMQ9rxQf9BNgi1VbaGI7r7TcioZWWYZB1QzS4tTg/qvCxbcak8//O+VZX2SztFpBkEAbMKEAg3+aGlhm1G/mGELPGR7PlT47phXZxIegn2+MlPBHCHcAIc+/kXTLcy5vtRSYjwTKGPIZTjOMSxtGp065SGY=
+  file:
+    - "remark-strip-badges.js"
+    - "remark-strip-badges.min.js"
+  on:
+    tags: true
