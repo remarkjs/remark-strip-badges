@@ -54,7 +54,8 @@ test('remark-strip-badges', function (t) {
             '',
             'nested: .',
             '',
-            '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg',
+            '[definition]: https://img.shields.io/' +
+                'scrutinizer/g/filp/whoops.svg',
             ''
         ].join('\n'));
 
