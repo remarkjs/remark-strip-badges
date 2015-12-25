@@ -2,6 +2,14 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.0 / 2015-12-25
+==================
+
+*   Remove distribution files from source ([92fcecf](https://github.com/wooorm/remark-strip-badges/commit/92fcecf))
+*   Remove support for bower ([b92f662](https://github.com/wooorm/remark-strip-badges/commit/b92f662))
+*   Refactor to replace mocha with tape ([f635b76](https://github.com/wooorm/remark-strip-badges/commit/f635b76))
+*   Rename `mdast-strip-badges` > `remark-strip-badges` ([0be862b](https://github.com/wooorm/remark-strip-badges/commit/0be862b))
+
 1.0.0 / 2015-08-20
 ==================
 
