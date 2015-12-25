@@ -11,7 +11,7 @@ badges.
 npm install remark-strip-badges
 ```
 
-**remark-strip-badges** is also available for [bower](http://bower.io/#install-packages),
+**remark-strip-badges** is also available for
 [component](https://github.com/componentjs/component), and
 [duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
 module, [uncompressed](remark-strip-badges.js) and
