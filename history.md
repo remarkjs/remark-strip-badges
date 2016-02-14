@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.0 / 2016-02-14
+==================
+
+*   Remove support for Duo ([`c71f756`](https://github.com/wooorm/remark-strip-badges/commit/c71f756))
+*   Update for changes in `remark@4.0.0` ([`163f2da`](https://github.com/wooorm/remark-strip-badges/commit/163f2da))
+
 2.0.0 / 2015-12-25
 ==================
 

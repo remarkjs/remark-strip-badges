@@ -36,7 +36,7 @@ var doc = remark().use(stripBadges).process([
 Yields:
 
 ```markdown
-# remark-strip-badges
+# remark-strip-badges 
 
 [badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
 ```

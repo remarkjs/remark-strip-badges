@@ -1,6 +1,6 @@
 {
   "name": "remark-strip-badges",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Remove badges (such as shields.io) from markdown",
   "license": "MIT",
   "keywords": [
