@@ -43,11 +43,11 @@ function checkFactory(references) {
      * @param {Node?} parent - Parent of `node`.
      */
     function check(node, index, parent) {
-        var url = node.src;
+        var url = node.url;
 
         if ('identifier' in node) {
             url = references(node.identifier);
-            url = url && url.link;
+            url = url && url.url;
         }
 
         if (isBadge(url)) {
