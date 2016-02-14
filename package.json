@@ -41,6 +41,7 @@
     "remark-comment-config": "^3.0.0",
     "remark-github": "^4.0.1",
     "remark-lint": "^3.0.0",
+    "remark-usage": "^2.1.0",
     "tape": "^4.0.0"
   },
   "scripts": {

@@ -1,35 +1,74 @@
-# remark-strip-badges [![Build Status](https://img.shields.io/travis/wooorm/remark-strip-badges.svg)](https://travis-ci.org/wooorm/remark-strip-badges) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg)](https://codecov.io/github/wooorm/remark-strip-badges)
+# remark-strip-badges [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-[**remark**](https://github.com/wooorm/remark) plug-in to strip [shields.io](http://shields.io)
-badges.
+[**remark**][remark] plug-in to strip badges (for example,
+[`shields.io`][shields]).
 
 ## Installation
 
-[npm](https://docs.npmjs.com/cli/install):
+[npm][npm-install]:
 
 ```bash
 npm install remark-strip-badges
 ```
 
-**remark-strip-badges** is also available for
-[component](https://github.com/componentjs/component), and
-[duo](http://duojs.org/#getting-started), and as an AMD, CommonJS, and globals
-module, [uncompressed and compressed](https://github.com/wooorm/remark-strip-badges/releases).
+**remark-strip-badges** is also available as an AMD, CommonJS, and globals
+module, [uncompressed and compressed][releases].
 
 ## Usage
 
-## CLI
+Dependencies:
 
-```bash
-remark ... -u remark-strip-badges
+```javascript
+var remark = require('remark');
+var stripBadges = require('remark-strip-badges');
+```
+
+Process:
+
+```javascript
+var doc = remark().use(stripBadges).process([
+    '# remark-strip-badges ![Build Status][badge]',
+    '',
+    '[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg'
+].join('\n'));
+```
+
+Yields:
+
+```markdown
+# remark-strip-badges
+
+[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
 ```
 
 ## API
 
-### [remark](https://github.com/wooorm/remark#api).[use](https://github.com/wooorm/remark#remarkuseplugin-options)(stripBadges)
+### `remark.use(stripBadges)`
 
-Strips badges, like [shields.io](http://shields.io).
+Strips badges, like [`shields.io`][shields].
 
 ## License
 
-[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
+[MIT][license] © [Titus Wormer][author]
+
+<!-- Definitions -->
+
+[travis-badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
+
+[travis]: https://travis-ci.org/wooorm/remark-strip-badges
+
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg
+
+[codecov]: https://codecov.io/github/wooorm/remark-strip-badges
+
+[npm-install]: https://docs.npmjs.com/cli/install
+
+[releases]: https://github.com/wooorm/remark-strip-badges/releases
+
+[license]: LICENSE
+
+[author]: http://wooorm.com
+
+[remark]: https://github.com/wooorm/remark
+
+[shields]: http://shields.io
