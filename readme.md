@@ -1,18 +1,20 @@
-# remark-strip-badges [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# remark-strip-badges [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
-[**remark**][remark] plug-in to strip badges (for example,
+<!--lint disable list-item-spacing-->
+
+[**remark**][remark] plug-in to strip badges (such as
 [`shields.io`][shields]).
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install remark-strip-badges
 ```
 
-**remark-strip-badges** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
+**remark-strip-badges** is also available as an AMD, CommonJS, and
+globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -53,21 +55,25 @@ Strips badges, like [`shields.io`][shields].
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
+[build-badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
 
-[travis]: https://travis-ci.org/wooorm/remark-strip-badges
+[build-status]: https://travis-ci.org/wooorm/remark-strip-badges
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg
 
-[codecov]: https://codecov.io/github/wooorm/remark-strip-badges
+[coverage-status]: https://codecov.io/github/wooorm/remark-strip-badges
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+
+[chat]: https://gitter.im/wooorm/remark
 
 [releases]: https://github.com/wooorm/remark-strip-badges/releases
 
 [license]: LICENSE
 
 [author]: http://wooorm.com
+
+[npm]: https://docs.npmjs.com/cli/install
 
 [remark]: https://github.com/wooorm/remark
 
