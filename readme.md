@@ -26,7 +26,7 @@ var stripBadges = require('remark-strip-badges');
 Process:
 
 ```javascript
-var doc = remark().use(stripBadges).process([
+var file = remark().use(stripBadges).process([
     '# remark-strip-badges ![Build Status][badge]',
     '',
     '[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg'

@@ -107,7 +107,7 @@ function transformer(ast) {
  * Return `transformer`.
  *
  * @example
- *   remark.use(attacher).process(doc);
+ *   remark().use(attacher).process(doc);
  *
  * @return {Function} - See `transformer`.
  */

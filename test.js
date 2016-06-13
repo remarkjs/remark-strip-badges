@@ -23,7 +23,7 @@ var badges = require('./');
  */
 
 test('remark-strip-badges', function (t) {
-    remark.use(badges).process([
+    remark().use(badges).process([
         '# Hello',
         '',
         'non-badge: ![](http://example.com/fav.ico).',
@@ -38,10 +38,10 @@ test('remark-strip-badges', function (t) {
         '',
         '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg',
         ''
-    ].join('\n'), function (err, file, doc) {
+    ].join('\n'), function (err, file) {
         t.ifErr(err);
 
-        t.equal(doc, [
+        t.equal(String(file), [
             '# Hello',
             '',
             'non-badge: ![](http://example.com/fav.ico).',
