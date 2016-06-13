@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.1 / 2016-06-13
+==================
+
+*   Update `readme.md` ([`8e8e560`](https://github.com/wooorm/remark-strip-badges/commit/8e8e560))
+*   Update dev-dependencies ([`fceca05`](https://github.com/wooorm/remark-strip-badges/commit/fceca05))
+
 3.0.0 / 2016-02-14
 ==================
 
