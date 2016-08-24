@@ -8,115 +8,65 @@
 
 'use strict';
 
-/* eslint-env commonjs */
-
-/*
- * Dependencies.
- */
-
+/* Dependencies. */
 var definitions = require('mdast-util-definitions');
 var visit = require('unist-util-visit');
-var isBadge = require('is-badge');
+var badge = require('is-badge');
 
-/**
- * Factory to create a visitor which queues badge links
- * and images up for removal.
- *
- * @private
- * @param {Object} references - Map of identifiers to
- *   links.
- * @return {Function} - See below.
- */
+/* Expose. */
+module.exports = attacher;
+
+/* Attacher. */
+function attacher() {
+  return transformer;
+}
+
+/* Remove badges. */
+function transformer(ast) {
+  var check = checkFactory(definitions(ast));
+
+  visit(ast, 'imageReference', check);
+  visit(ast, 'image', check);
+
+  visit(ast, removeFactory(check.remove));
+}
+
+/* Factory to create a visitor which queues badge links
+ * and images up for removal. */
 function checkFactory(references) {
-    var remove = [];
+  var remove = [];
 
-    /**
-     * Bound visitor which queues badge images for removal.
-     *
-     * If the parent of `node` is a link or link-reference,
-     * that parent is queued.
-     *
-     * @private
-     * @property {Array.<Node>} remove - Resulting nodes.
-     * @param {Node} node - Visited node.
-     * @param {number?} index - Index of `node` in `parent`.
-     * @param {Node?} parent - Parent of `node`.
-     */
-    function check(node, index, parent) {
-        var url = node.url;
+  check.remove = remove;
 
-        if ('identifier' in node) {
-            url = references(node.identifier);
-            url = url && url.url;
-        }
+  return check;
 
-        if (isBadge(url)) {
-            if (parent.type === 'link' || parent.type === 'linkReference') {
-                remove.push(parent);
-            } else {
-                remove.push(node);
-            }
-        }
+  /* Bound visitor which queues badge images for removal.
+   *
+   * If the parent of `node` is a link or link-reference,
+   * that parent is queued. */
+  function check(node, index, parent) {
+    var url = node.url;
+
+    if ('identifier' in node) {
+      url = references(node.identifier);
+      url = url && url.url;
     }
 
-    check.remove = remove;
-
-    return check;
+    if (badge(url)) {
+      if (parent.type === 'link' || parent.type === 'linkReference') {
+        remove.push(parent);
+      } else {
+        remove.push(node);
+      }
+    }
+  }
 }
 
-/**
- * Factory to create a visitor which removes each node in
- * `nodes` once found.
- *
- * @private
- * @param {Array.<Node>} nodes - Nodes to remove.
- * @return {Function} - See below.
- */
+/* Removes each node in `nodes`. */
 function removeFactory(nodes) {
-    /**
-     * Bound visitor which removes each node in `nodes`.
-     *
-     * @private
-     * @param {Node} node - Visited node.
-     * @param {number?} index - Index of `node` in `parent`.
-     * @param {Node?} parent - Parent of `node`.
-     */
-    return function (node, index, parent) {
-        if (parent && nodes.indexOf(node) !== -1) {
-            parent.children.splice(index, 1);
-        }
-    };
+  return function (node, index, parent) {
+    if (parent && nodes.indexOf(node) !== -1) {
+      parent.children.splice(index, 1);
+    }
+  };
 }
-
-/**
- * Remove badges.
- *
- * @private
- * @param {Node} ast - Root node.
- */
-function transformer(ast) {
-    var check = checkFactory(definitions(ast));
-
-    visit(ast, 'imageReference', check);
-    visit(ast, 'image', check);
-
-    visit(ast, removeFactory(check.remove));
-}
-
-/**
- * Return `transformer`.
- *
- * @example
- *   remark().use(attacher).process(doc);
- *
- * @return {Function} - See `transformer`.
- */
-function attacher() {
-    return transformer;
-}
-
-/*
- * Expose.
- */
-
-module.exports = attacher;
