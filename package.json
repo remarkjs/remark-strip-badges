@@ -13,15 +13,7 @@
     "clean",
     "strip"
   ],
-  "dependencies": {
-    "is-badge": "^1.0.0",
-    "mdast-util-definitions": "^1.0.0",
-    "unist-util-visit": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/remark-strip-badges.git"
-  },
+  "repository": "https://github.com/wooorm/remark-strip-badges",
   "bugs": "https://github.com/wooorm/remark-strip-badges/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
@@ -30,15 +22,20 @@
   "files": [
     "index.js"
   ],
+  "dependencies": {
+    "is-badge": "^1.0.0",
+    "mdast-util-definitions": "^1.0.0",
+    "unist-util-visit": "^1.0.0"
+  },
   "devDependencies": {
     "browserify": "^13.0.0",
     "esmangle": "^1.0.0",
-    "nyc": "^8.1.0",
+    "nyc": "^10.0.0",
     "remark": "^6.0.0",
     "remark-cli": "^2.0.0",
     "remark-preset-wooorm": "^1.0.0",
     "tape": "^4.0.0",
-    "xo": "^0.16.0"
+    "xo": "^0.17.1"
   },
   "scripts": {
     "build-md": "remark . --quiet --frail",
