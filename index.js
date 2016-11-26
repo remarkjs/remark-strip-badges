@@ -1,27 +1,15 @@
-/**
- * @author Titus Wormer
- * @copyright 2015 Titus Wormer
- * @license MIT
- * @module remark:strip-badges
- * @fileoverview Remove badges (such as shields.io) from markdown.
- */
-
 'use strict';
 
-/* Dependencies. */
 var definitions = require('mdast-util-definitions');
 var visit = require('unist-util-visit');
 var badge = require('is-badge');
 
-/* Expose. */
 module.exports = attacher;
 
-/* Attacher. */
 function attacher() {
   return transformer;
 }
 
-/* Remove badges. */
 function transformer(ast) {
   var check = checkFactory(definitions(ast));
 
@@ -41,7 +29,6 @@ function checkFactory(references) {
   return check;
 
   /* Bound visitor which queues badge images for removal.
-   *
    * If the parent of `node` is a link or link-reference,
    * that parent is queued. */
   function check(node, index, parent) {
