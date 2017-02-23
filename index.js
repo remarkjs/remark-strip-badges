@@ -4,19 +4,19 @@ var definitions = require('mdast-util-definitions');
 var visit = require('unist-util-visit');
 var badge = require('is-badge');
 
-module.exports = attacher;
+module.exports = stripBadges;
 
-function attacher() {
+function stripBadges() {
   return transformer;
 }
 
-function transformer(ast) {
-  var check = checkFactory(definitions(ast));
+function transformer(tree) {
+  var check = checkFactory(definitions(tree));
 
-  visit(ast, 'imageReference', check);
-  visit(ast, 'image', check);
+  visit(tree, 'imageReference', check);
+  visit(tree, 'image', check);
 
-  visit(ast, removeFactory(check.remove));
+  visit(tree, removeFactory(check.remove));
 }
 
 /* Factory to create a visitor which queues badge links
