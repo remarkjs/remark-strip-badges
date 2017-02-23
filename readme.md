@@ -17,7 +17,7 @@ npm install remark-strip-badges
 var remark = require('remark');
 var stripBadges = require('remark-strip-badges');
 
-var file = remark().use(stripBadges).process([
+var file = remark().use(stripBadges).processSync([
   '# remark-strip-badges ![Build Status][badge]',
   '',
   '[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg'
