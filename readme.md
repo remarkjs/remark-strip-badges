@@ -50,6 +50,11 @@ Now, running `node example` yields:
 
 Strips badges, like [`shields.io`][shields].
 
+## Related
+
+*   [`remark-squeeze-paragraphs`](https://github.com/eush77/remark-squeeze-paragraphs)
+    — Remove empty paragraphs (potentially left behind by this plugin)
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
