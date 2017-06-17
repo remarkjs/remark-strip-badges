@@ -13,20 +13,30 @@ npm install remark-strip-badges
 
 ## Usage
 
-```javascript
-var remark = require('remark');
-var stripBadges = require('remark-strip-badges');
+Say we have the following file, `example.md`:
 
-var file = remark().use(stripBadges).processSync([
-  '# remark-strip-badges ![Build Status][badge]',
-  '',
-  '[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg'
-].join('\n'));
+```markdown
+# remark-strip-badges ![Build Status][badge]
 
-console.log(String(file));
+[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
 ```
 
-Yields:
+And our script, `example.js`, looks as follows:
+
+```javascript
+var fs = require('fs');
+var remark = require('remark');
+var strip = require('remark-strip-badges');
+
+remark()
+  .use(strip)
+  .process(fs.readFileSync('example.md'), function (err, file) {
+    if (err) throw err;
+    console.log(String(file));
+  });
+```
+
+Now, running `node example` yields:
 
 ```markdown
 # remark-strip-badges
