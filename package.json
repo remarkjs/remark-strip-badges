@@ -13,8 +13,8 @@
     "clean",
     "strip"
   ],
-  "repository": "https://github.com/wooorm/remark-strip-badges",
-  "bugs": "https://github.com/wooorm/remark-strip-badges/issues",
+  "repository": "remarkjs/remark-strip-badges",
+  "bugs": "https://github.com/remarkjs/remark-strip-badges/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"

@@ -18,7 +18,7 @@ Say we have the following file, `example.md`:
 ```markdown
 # remark-strip-badges ![Build Status][badge]
 
-[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
+[badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg
 ```
 
 And our script, `example.js`, looks as follows:
@@ -41,7 +41,7 @@ Now, running `node example` yields:
 ```markdown
 # remark-strip-badges
 
-[badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
+[badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg
 ```
 
 ## API
@@ -61,17 +61,17 @@ Strips badges, like [`shields.io`][shields].
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-strip-badges.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-strip-badges
+[build-status]: https://travis-ci.org/remarkjs/remark-strip-badges
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-strip-badges.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-strip-badges.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-strip-badges
+[coverage-status]: https://codecov.io/github/remarkjs/remark-strip-badges
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/remark
+[chat]: https://gitter.im/remarkjs/Lobby
 
 [license]: LICENSE
 
@@ -79,6 +79,6 @@ Strips badges, like [`shields.io`][shields].
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[remark]: https://github.com/wooorm/remark
+[remark]: https://github.com/remarkjs/remark
 
 [shields]: http://shields.io
