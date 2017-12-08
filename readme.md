@@ -55,6 +55,13 @@ Strips badges, like [`shields.io`][shields].
 *   [`remark-squeeze-paragraphs`](https://github.com/eush77/remark-squeeze-paragraphs)
     — Remove empty paragraphs (potentially left behind by this plugin)
 
+## Contribute
+
+See [`contribute.md` in `remarkjs/remarkj`][contribute] for ways to get started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -82,3 +89,7 @@ Strips badges, like [`shields.io`][shields].
 [remark]: https://github.com/remarkjs/remark
 
 [shields]: http://shields.io
+
+[contribute]: https://github.com/remarkjs/remark/blob/master/contributing.md
+
+[coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md
