@@ -51,9 +51,11 @@ function checkFactory(references) {
 
 /* Removes each node in `nodes`. */
 function removeFactory(nodes) {
-  return function (node, index, parent) {
+  return remover;
+  function remover(node, index, parent) {
     if (parent && nodes.indexOf(node) !== -1) {
       parent.children.splice(index, 1);
+      return index;
     }
-  };
+  }
 }
