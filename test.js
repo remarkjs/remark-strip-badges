@@ -2,7 +2,7 @@
 
 var test = require('tape');
 var remark = require('remark');
-var badges = require('./');
+var badges = require('.');
 
 test('remark-strip-badges', function (t) {
   t.plan(2);
