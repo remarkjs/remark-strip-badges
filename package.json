@@ -29,18 +29,18 @@
   },
   "devDependencies": {
     "browserify": "^16.0.0",
-    "esmangle": "^1.0.0",
     "nyc": "^12.0.0",
     "remark": "^9.0.0",
     "remark-cli": "^5.0.0",
     "remark-preset-wooorm": "^4.0.0",
     "tape": "^4.0.0",
+    "tinyify": "^2.4.3",
     "xo": "^0.22.0"
   },
   "scripts": {
     "build-md": "remark . -qfo",
-    "build-bundle": "browserify index.js --no-builtins -s remarkStripBadges > remark-strip-badges.js",
-    "build-mangle": "esmangle remark-strip-badges.js > remark-strip-badges.min.js",
+    "build-bundle": "browserify . -s remarkStripBadges > remark-strip-badges.js",
+    "build-mangle": "browserify . -s remarkStripBadges -p tinyify > remark-strip-badges.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
     "test-api": "node test.js",
