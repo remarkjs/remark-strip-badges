@@ -11,24 +11,13 @@ function stripBadges() {
 }
 
 function transformer(tree) {
-  var check = checkFactory(definitions(tree))
-
-  visit(tree, 'imageReference', check)
-  visit(tree, 'image', check)
-
-  visit(tree, removeFactory(check.remove))
-}
-
-/* Factory to create a visitor which queues badge links
- * and images up for removal. */
-function checkFactory(references) {
+  var references = definitions(tree)
   var remove = []
 
-  check.remove = remove
+  visit(tree, ['imageReference', 'image'], check)
+  visit(tree, remover)
 
-  return check
-
-  /* Bound visitor which queues badge images for removal.
+  /* Visitor that queues badge images for removal.
    * If the parent of `node` is a link or link-reference,
    * that parent is queued. */
   function check(node, index, parent) {
@@ -47,13 +36,9 @@ function checkFactory(references) {
       }
     }
   }
-}
 
-/* Removes each node in `nodes`. */
-function removeFactory(nodes) {
-  return remover
   function remover(node, index, parent) {
-    if (parent && nodes.indexOf(node) !== -1) {
+    if (parent && remove.indexOf(node) !== -1) {
       parent.children.splice(index, 1)
       return index
     }
