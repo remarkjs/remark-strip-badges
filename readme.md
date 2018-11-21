@@ -82,13 +82,13 @@ repository, organisation, or community you agree to abide by its terms.
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [npm]: https://docs.npmjs.com/cli/install
 
 [remark]: https://github.com/remarkjs/remark
 
-[shields]: http://shields.io
+[shields]: https://shields.io
 
 [contributing]: https://github.com/remarkjs/remark/blob/master/contributing.md
 
