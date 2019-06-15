@@ -17,9 +17,8 @@ function transformer(tree) {
   visit(tree, ['imageReference', 'image'], check)
   visit(tree, remover)
 
-  /* Visitor that queues badge images for removal.
-   * If the parent of `node` is a link or link-reference,
-   * that parent is queued. */
+  // Visitor that queues badge images for removal.
+  // If the parent of `node` is a link or link reference, that parent is queued.
   function check(node, index, parent) {
     var url = node.url
 
