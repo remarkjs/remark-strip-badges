@@ -3,21 +3,22 @@
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
-[![Chat][chat-badge]][chat]
+[![Size][size-badge]][size]
 [![Sponsors][sponsors-badge]][collective]
 [![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
 [**remark**][remark] plugin to strip badges (such as [`shields.io`][shields]).
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install remark-strip-badges
 ```
 
-## Usage
+## Use
 
 Say we have the following file, `example.md`:
 
@@ -29,7 +30,7 @@ Say we have the following file, `example.md`:
 
 And our script, `example.js`, looks as follows:
 
-```javascript
+```js
 var fs = require('fs')
 var remark = require('remark')
 var strip = require('remark-strip-badges')
@@ -54,7 +55,7 @@ Now, running `node example` yields:
 
 ### `remark.use(stripBadges)`
 
-Strips badges, like [`shields.io`][shields].
+Plugin to strip badges (such as [`shields.io`][shields]).
 
 ## Related
 
@@ -63,11 +64,13 @@ Strips badges, like [`shields.io`][shields].
 
 ## Contribute
 
-See [`contributing.md` in `remarkjs/remark`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -75,7 +78,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges/master.svg
 
 [build]: https://travis-ci.org/remarkjs/remark-strip-badges
 
@@ -87,9 +90,9 @@ repository, organisation, or community you agree to abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/remark-strip-badges
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-strip-badges.svg
 
-[chat]: https://spectrum.chat/unified/remark
+[size]: https://bundlephobia.com/result?p=remark-strip-badges
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -97,16 +100,24 @@ repository, organisation, or community you agree to abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/remark
+
+[npm]: https://docs.npmjs.com/cli/install
+
+[health]: https://github.com/remarkjs/.github
+
+[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+
+[support]: https://github.com/remarkjs/.github/blob/master/support.md
+
+[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[npm]: https://docs.npmjs.com/cli/install
-
 [remark]: https://github.com/remarkjs/remark
 
 [shields]: https://shields.io
-
-[contributing]: https://github.com/remarkjs/remark/blob/master/contributing.md
-
-[coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md
