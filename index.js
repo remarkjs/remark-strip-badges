@@ -33,13 +33,15 @@ function transformer(tree) {
       } else {
         remove.push(node)
       }
+
+      return visit.SKIP
     }
   }
 
   function remover(node, index, parent) {
     if (parent && remove.indexOf(node) !== -1) {
       parent.children.splice(index, 1)
-      return index
+      return [visit.SKIP, index]
     }
   }
 }
