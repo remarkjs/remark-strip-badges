@@ -57,6 +57,12 @@ Now, running `node example` yields:
 
 Plugin to strip badges (such as [`shields.io`][shields]).
 
+## Security
+
+Use of `remark-strip-badges` does not involve [**rehype**][rehype]
+([**hast**][hast]) or user content so there are no openings for
+[cross-site scripting (XSS)][xss] attacks.
+
 ## Related
 
 *   [`remark-squeeze-paragraphs`](https://github.com/eush77/remark-squeeze-paragraphs)
@@ -121,3 +127,9 @@ abide by its terms.
 [remark]: https://github.com/remarkjs/remark
 
 [shields]: https://shields.io
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[rehype]: https://github.com/rehypejs/rehype
+
+[hast]: https://github.com/syntax-tree/hast
