@@ -4,7 +4,7 @@ var test = require('tape')
 var remark = require('remark')
 var badges = require('.')
 
-test('remark-strip-badges', function(t) {
+test('remark-strip-badges', function (t) {
   t.plan(2)
 
   remark()
@@ -19,7 +19,7 @@ test('remark-strip-badges', function(t) {
         'nested: [![definition]](https://npm.im/localeval).',
         '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg\n'
       ].join('\n\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [
@@ -51,7 +51,7 @@ test('remark-strip-badges', function(t) {
         '[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg',
         '[chat]: https://gitter.im/remarkjs/Lobby\n'
       ].join('\n\n'),
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err, String(file)],
           [
