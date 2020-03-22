@@ -18,6 +18,10 @@
   ],
   "repository": "remarkjs/remark-strip-badges",
   "bugs": "https://github.com/remarkjs/remark-strip-badges/issues",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
