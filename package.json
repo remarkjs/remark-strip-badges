@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "is-badge": "^1.0.0",
-    "mdast-util-definitions": "^1.0.0",
+    "mdast-util-definitions": "^2.0.0",
     "unist-util-visit": "^1.4.0"
   },
   "devDependencies": {
