@@ -11,37 +11,50 @@ function stripBadges() {
 }
 
 function transformer(tree) {
-  var references = definitions(tree)
-  var remove = []
+  var define = definitions(tree)
 
-  visit(tree, ['imageReference', 'image'], check)
-  visit(tree, remover)
+  visit(tree, check)
 
-  // Visitor that queues badge images for removal.
-  // If the parent of `node` is a link or link reference, that parent is queued.
+  // Remove badge images, and links that include a badge image.
   function check(node, index, parent) {
-    var url = node.url
+    var remove = false
+    var children
+    var length
+    var offset
+    var child
 
-    if ('identifier' in node) {
-      url = references(node.identifier)
-      url = url && url.url
-    }
+    if (node.type === 'link' || node.type === 'linkReference') {
+      children = node.children
+      length = children.length
+      offset = -1
 
-    if (badge(url)) {
-      if (parent.type === 'link' || parent.type === 'linkReference') {
-        remove.push(parent)
-      } else {
-        remove.push(node)
+      while (++offset < length) {
+        child = children[offset]
+
+        if (badgeImage(child, define)) {
+          remove = true
+          break
+        }
       }
-
-      return visit.SKIP
+    } else if (badgeImage(node, define)) {
+      remove = true
     }
-  }
 
-  function remover(node, index, parent) {
-    if (parent && remove.indexOf(node) !== -1) {
+    if (remove === true) {
       parent.children.splice(index, 1)
       return [visit.SKIP, index]
     }
   }
+}
+
+function badgeImage(node, define) {
+  var def
+
+  if (node.type === 'image') {
+    def = node
+  } else if (node.type === 'imageReference') {
+    def = define(node.identifier)
+  }
+
+  return def && badge(def.url)
 }

@@ -17,6 +17,7 @@ test('remark-strip-badges', function (t) {
         'http: ![build](https://img.shields.io/coveralls/jekyll/jekyll.svg).',
         'reference: ![definition].',
         'nested: [![definition]](https://npm.im/localeval).',
+        'random: [other](https://link.com).',
         '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg\n'
       ].join('\n\n'),
       function (err, file) {
@@ -31,6 +32,7 @@ test('remark-strip-badges', function (t) {
               'http&#x3A; .',
               'reference: .',
               'nested: .',
+              'random: [other](https://link.com).',
               '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg\n'
             ].join('\n\n')
           ],
