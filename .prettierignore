@@ -1,3 +1,5 @@
 coverage/
 remark-strip-badges.js
 remark-strip-badges.min.js
+*.json
+*.md
