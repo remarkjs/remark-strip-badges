@@ -28,8 +28,8 @@ test('remark-strip-badges', function (t) {
             [
               '# Hello',
               'non-badge: ![](http://example.com/fav.ico).',
-              'https&#x3A; .',
-              'http&#x3A; .',
+              'https: .',
+              'http: .',
               'reference: .',
               'nested: .',
               'random: [other](https://link.com).',

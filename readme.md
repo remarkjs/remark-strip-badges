@@ -10,6 +10,13 @@
 
 [**remark**][remark] plugin to strip badges (such as [`shields.io`][shields]).
 
+## Note!
+
+This plugin is ready for the new parser in remark
+([`remarkjs/remark#536`](https://github.com/remarkjs/remark/pull/536)).
+The current and previous versions of the plugin work with the current and
+previous versions of remark.
+
 ## Install
 
 [npm][]:
