@@ -20,9 +20,9 @@ test('remark-strip-badges', function (t) {
         'random: [other](https://link.com).',
         '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg\n'
       ].join('\n\n'),
-      function (err, file) {
+      function (error, file) {
         t.deepEqual(
-          [err, String(file)],
+          [error, String(file)],
           [
             null,
             [
@@ -53,9 +53,9 @@ test('remark-strip-badges', function (t) {
         '[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg',
         '[chat]: https://gitter.im/remarkjs/Lobby\n'
       ].join('\n\n'),
-      function (err, file) {
+      function (error, file) {
         t.deepEqual(
-          [err, String(file)],
+          [error, String(file)],
           [
             null,
             [
