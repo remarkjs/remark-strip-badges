@@ -34,9 +34,9 @@
     "index.js"
   ],
   "dependencies": {
-    "is-badge": "^1.0.0",
-    "mdast-util-definitions": "^4.0.0",
-    "unist-util-visit": "^2.0.0"
+    "is-badge": "^2.0.0",
+    "mdast-util-definitions": "^5.0.0",
+    "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
     "c8": "^7.0.0",

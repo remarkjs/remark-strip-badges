@@ -1,6 +1,6 @@
-import definitions from 'mdast-util-definitions'
-import visit from 'unist-util-visit'
-import badge from 'is-badge'
+import {definitions} from 'mdast-util-definitions'
+import {visit} from 'unist-util-visit'
+import {isBadge} from 'is-badge'
 
 export default function remarkStripBadges() {
   return transformer
@@ -52,5 +52,5 @@ function badgeImage(node, define) {
     def = define(node.identifier)
   }
 
-  return def && badge(def.url)
+  return def && isBadge(def.url)
 }
