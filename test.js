@@ -1,8 +1,6 @@
-'use strict'
-
-var test = require('tape')
-var remark = require('remark')
-var badges = require('.')
+import test from 'tape'
+import remark from 'remark'
+import badges from './index.js'
 
 test('remark-strip-badges', function (t) {
   t.plan(2)

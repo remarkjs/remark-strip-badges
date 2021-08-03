@@ -1,12 +1,8 @@
-'use strict'
+import definitions from 'mdast-util-definitions'
+import visit from 'unist-util-visit'
+import badge from 'is-badge'
 
-var definitions = require('mdast-util-definitions')
-var visit = require('unist-util-visit')
-var badge = require('is-badge')
-
-module.exports = stripBadges
-
-function stripBadges() {
+export default function remarkStripBadges() {
   return transformer
 }
 
