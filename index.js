@@ -1,5 +1,5 @@
 import {definitions} from 'mdast-util-definitions'
-import {visit} from 'unist-util-visit'
+import {visit, SKIP} from 'unist-util-visit'
 import {isBadge} from 'is-badge'
 
 export default function remarkStripBadges() {
@@ -7,25 +7,20 @@ export default function remarkStripBadges() {
 }
 
 function transformer(tree) {
-  var define = definitions(tree)
+  const define = definitions(tree)
 
   visit(tree, check)
 
   // Remove badge images, and links that include a badge image.
   function check(node, index, parent) {
-    var remove = false
-    var children
-    var length
-    var offset
-    var child
+    let remove = false
 
     if (node.type === 'link' || node.type === 'linkReference') {
-      children = node.children
-      length = children.length
-      offset = -1
+      const children = node.children
+      let offset = -1
 
-      while (++offset < length) {
-        child = children[offset]
+      while (++offset < children.length) {
+        const child = children[offset]
 
         if (badgeImage(child, define)) {
           remove = true
@@ -38,19 +33,18 @@ function transformer(tree) {
 
     if (remove === true) {
       parent.children.splice(index, 1)
-      return [visit.SKIP, index]
+      return [SKIP, index]
     }
   }
 }
 
 function badgeImage(node, define) {
-  var def
-
   if (node.type === 'image') {
-    def = node
-  } else if (node.type === 'imageReference') {
-    def = define(node.identifier)
+    return isBadge(node.url)
   }
 
-  return def && isBadge(def.url)
+  if (node.type === 'imageReference') {
+    const def = define(node.identifier)
+    return isBadge(def.url)
+  }
 }

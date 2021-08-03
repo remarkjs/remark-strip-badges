@@ -2,7 +2,7 @@ import test from 'tape'
 import {remark} from 'remark'
 import remarkStripBadges from './index.js'
 
-test('remark-strip-badges', function (t) {
+test('remark-strip-badges', (t) => {
   t.plan(2)
 
   remark()
@@ -18,7 +18,7 @@ test('remark-strip-badges', function (t) {
         'random: [other](https://link.com).',
         '[definition]: https://img.shields.io/scrutinizer/g/filp/whoops.svg\n'
       ].join('\n\n'),
-      function (error, file) {
+      (error, file) => {
         t.deepEqual(
           [error, String(file)],
           [
@@ -51,7 +51,7 @@ test('remark-strip-badges', function (t) {
         '[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg',
         '[chat]: https://gitter.im/remarkjs/Lobby\n'
       ].join('\n\n'),
-      function (error, file) {
+      (error, file) => {
         t.deepEqual(
           [error, String(file)],
           [
