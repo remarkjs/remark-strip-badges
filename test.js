@@ -1,12 +1,12 @@
 import test from 'tape'
-import remark from 'remark'
-import badges from './index.js'
+import {remark} from 'remark'
+import remarkStripBadges from './index.js'
 
 test('remark-strip-badges', function (t) {
   t.plan(2)
 
   remark()
-    .use(badges)
+    .use(remarkStripBadges)
     .process(
       [
         '# Hello',
@@ -40,7 +40,7 @@ test('remark-strip-badges', function (t) {
     )
 
   remark()
-    .use(badges)
+    .use(remarkStripBadges)
     .process(
       [
         '# remark-strip-badges [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]',
