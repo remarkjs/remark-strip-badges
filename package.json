@@ -1,6 +1,6 @@
 {
   "name": "remark-strip-badges",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "remark plugin to remove badges (such as shields.io)",
   "license": "MIT",
   "keywords": [
