@@ -19,6 +19,9 @@ previous versions of remark.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -38,14 +41,16 @@ Say we have the following file, `example.md`:
 And our script, `example.js`, looks as follows:
 
 ```js
-var fs = require('fs')
-var remark = require('remark')
-var strip = require('remark-strip-badges')
+import fs from 'node:fs'
+import {remark} from 'remark'
+import remarkStripBadges from 'remark-strip-badges'
+
+const buf = fs.readFileSync('example.md')
 
 remark()
-  .use(strip)
-  .process(fs.readFileSync('example.md'), function(err, file) {
-    if (err) throw err
+  .use(remarkStripBadges)
+  .process(buf)
+  .then((file) => {
     console.log(String(file))
   })
 ```
@@ -60,7 +65,10 @@ Now, running `node example` yields:
 
 ## API
 
-### `remark.use(stripBadges)`
+This package exports no identifiers.
+The default export is `remarkStripBadges`.
+
+### `unified().use(remarkStripBadges)`
 
 Plugin to strip badges (such as [`shields.io`][shields]).
 
