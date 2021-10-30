@@ -8,7 +8,7 @@ import {visit, SKIP} from 'unist-util-visit'
 import {isBadge} from 'is-badge'
 
 /**
- * Plugin to strip badges (such as `shields.io`).
+ * Plugin to remove badges (such as `shields.io`).
  *
  * @type {import('unified').Plugin<void[], Root>}
  */
@@ -38,6 +38,26 @@ export default function remarkStripBadges() {
 
       if (remove === true && parent && typeof index === 'number') {
         parent.children.splice(index, 1)
+
+        if (index === parent.children.length) {
+          let tail = parent.children[index - 1]
+
+          // If the remaining tail is a text.
+          while (tail && tail.type === 'text') {
+            index--
+
+            // Remove trailing tabs and spaces.
+            tail.value = tail.value.replace(/[ \t]+$/, '')
+
+            // Remove the whole if it was whitespace only.
+            if (!tail.value) {
+              parent.children.splice(index, 1)
+            }
+
+            tail = parent.children[index - 1]
+          }
+        }
+
         return [SKIP, index]
       }
     })

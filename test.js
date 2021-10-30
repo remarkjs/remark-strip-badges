@@ -57,7 +57,7 @@ test('remark-strip-badges', (t) => {
           [
             null,
             [
-              '# remark-strip-badges  &#x20;',
+              '# remark-strip-badges',
               '[build-badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg',
               '[build-status]: https://travis-ci.org/remarkjs/remark-strip-badges',
               '[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-strip-badges.svg',
