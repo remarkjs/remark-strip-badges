@@ -8,24 +8,65 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**remark**][remark] plugin to strip badges (such as [`shields.io`][shields]).
+**[remark][]** plugin to remove badges (such as [`shields.io`][shields]).
 
-## Note!
+## Contents
 
-This plugin is ready for the new parser in remark
-([`remarkjs/remark#536`](https://github.com/remarkjs/remark/pull/536)).
-The current and previous versions of the plugin work with the current and
-previous versions of remark.
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`unified().use(remarkStripBadges)`](#unifieduseremarkstripbadges)
+*   [Syntax](#syntax)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a [unified][] ([remark][]) plugin to remove badges (such as
+[`shields.io`][shields]).
+
+**unified** is a project that transforms content with abstract syntax trees
+(ASTs).
+**remark** adds support for markdown to unified.
+**mdast** is the markdown AST that remark uses.
+This is a remark plugin that transforms mdast.
+
+## When should I use this?
+
+This package is useful when you’re taking (user generated) readmes, which
+in the JavaScript community often have assorted badges, but want to display
+them cleanly on a website or in a limited medium such as man pages.
+
+A different plugin, [`remark-squeeze-paragraphs`][remark-squeeze-paragraphs],
+can take care of potentially empty paragraphs left behind by this plugin.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install remark-strip-badges
+```
+
+In Deno with [Skypack][]:
+
+```js
+import remarkStripBadges from 'https://cdn.skypack.dev/remark-strip-badges@6?dts'
+```
+
+In browsers with [Skypack][]:
+
+```html
+<script type="module">
+  import remarkStripBadges from 'https://cdn.skypack.dev/remark-strip-badges@6?min'
+</script>
 ```
 
 ## Use
@@ -41,18 +82,19 @@ Say we have the following file, `example.md`:
 And our script, `example.js`, looks as follows:
 
 ```js
-import fs from 'node:fs'
+import {read} from 'to-vfile'
 import {remark} from 'remark'
 import remarkStripBadges from 'remark-strip-badges'
 
-const buf = fs.readFileSync('example.md')
+main()
 
-remark()
-  .use(remarkStripBadges)
-  .process(buf)
-  .then((file) => {
-    console.log(String(file))
-  })
+async function main() {
+  const file = await remark()
+    .use(remarkStripBadges)
+    .process(await read('example.md'))
+
+  console.log(String(file))
+}
 ```
 
 Now, running `node example` yields:
@@ -70,18 +112,39 @@ The default export is `remarkStripBadges`.
 
 ### `unified().use(remarkStripBadges)`
 
-Plugin to strip badges (such as [`shields.io`][shields]).
+Plugin to remove badges (such as [`shields.io`][shields]).
+There are no options.
+
+## Syntax
+
+Any image (or image references) that references a known badge (see
+[`is-badge`][is-badge]) will be removed.
+If it occurs in a link, that link is also removed.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+There are no extra types exported.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
+
+This plugin works with `unified` version 3+ and `remark` version 4+.
 
 ## Security
 
-Use of `remark-strip-badges` does not involve [**rehype**][rehype]
-([**hast**][hast]) or user content so there are no openings for
-[cross-site scripting (XSS)][xss] attacks.
+Use of `remark-strip-badges` does not involve **[rehype][]** (**[hast][]**) or
+user content so there are no openings for [cross-site scripting (XSS)][xss]
+attacks.
 
 ## Related
 
-*   [`remark-squeeze-paragraphs`](https://github.com/eush77/remark-squeeze-paragraphs)
-    — Remove empty paragraphs (potentially left behind by this plugin)
+*   [`remark-squeeze-paragraphs`][remark-squeeze-paragraphs]
+    — remove empty paragraphs (potentially left behind by this plugin)
 
 ## Contribute
 
@@ -127,6 +190,8 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[skypack]: https://www.skypack.dev
+
 [health]: https://github.com/remarkjs/.github
 
 [contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
@@ -141,10 +206,18 @@ abide by its terms.
 
 [remark]: https://github.com/remarkjs/remark
 
+[unified]: https://github.com/unifiedjs/unified
+
 [shields]: https://shields.io
 
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
 
+[typescript]: https://www.typescriptlang.org
+
 [rehype]: https://github.com/rehypejs/rehype
 
 [hast]: https://github.com/syntax-tree/hast
+
+[remark-squeeze-paragraphs]: https://github.com/remarkjs/remark-squeeze-paragraphs
+
+[is-badge]: https://github.com/wooorm/is-badge
