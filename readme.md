@@ -55,17 +55,17 @@ In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 npm install remark-strip-badges
 ```
 
-In Deno with [Skypack][]:
+In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkStripBadges from 'https://cdn.skypack.dev/remark-strip-badges@6?dts'
+import remarkStripBadges from 'https://esm.sh/remark-strip-badges@6'
 ```
 
-In browsers with [Skypack][]:
+In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkStripBadges from 'https://cdn.skypack.dev/remark-strip-badges@6?min'
+  import remarkStripBadges from 'https://esm.sh/remark-strip-badges@6?bundle'
 </script>
 ```
 
@@ -190,7 +190,7 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[skypack]: https://www.skypack.dev
+[esmsh]: https://esm.sh
 
 [health]: https://github.com/remarkjs/.github
 
