@@ -1,9 +1,15 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {remark} from 'remark'
-import remarkStripBadges from './index.js'
+import remarkStripBadges from 'remark-strip-badges'
 
 test('remark-strip-badges', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('remark-strip-badges')).sort(), [
+      'default'
+    ])
+  })
+
   await t.test('should work', async function () {
     const file = String(
       await remark()
