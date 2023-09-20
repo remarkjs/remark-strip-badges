@@ -22,7 +22,7 @@ test('remark-strip-badges', (t) => {
         t.deepEqual(
           [error, String(file)],
           [
-            null,
+            undefined,
             [
               '# Hello',
               'non-badge: ![](http://example.com/fav.ico).',
@@ -55,7 +55,7 @@ test('remark-strip-badges', (t) => {
         t.deepEqual(
           [error, String(file)],
           [
-            null,
+            undefined,
             [
               '# remark-strip-badges',
               '[build-badge]: https://img.shields.io/travis/remarkjs/remark-strip-badges.svg',
