@@ -40,7 +40,6 @@
     "@types/mdast": "^4.0.0",
     "is-badge": "^2.0.0",
     "mdast-util-definitions": "^6.0.0",
-    "unified": "^11.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
