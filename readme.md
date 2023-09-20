@@ -52,14 +52,14 @@ npm install remark-strip-badges
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkStripBadges from 'https://esm.sh/remark-strip-badges@6'
+import remarkStripBadges from 'https://esm.sh/remark-strip-badges@7'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkStripBadges from 'https://esm.sh/remark-strip-badges@6?bundle'
+  import remarkStripBadges from 'https://esm.sh/remark-strip-badges@7?bundle'
 </script>
 ```
 
